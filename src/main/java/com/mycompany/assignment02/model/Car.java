@@ -51,4 +51,30 @@ public class Car {
     public double getSpeed() {
         return speed;
     }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    /**
+     * Moves the car to a new position.
+     *
+     * @param x the new horizontal position
+     * @param y the new vertical position
+     */
+    public void moveTo(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * Moves the car forward by its own speed.
+     */
+    public void advance() {
+        x += speed;
+    }
+
+    public String getLabel() {
+        return "Car " + number + " (" + colorName + " " + type + ")";
+    }
 }
