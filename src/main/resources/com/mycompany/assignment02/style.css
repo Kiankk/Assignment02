@@ -1,0 +1,20 @@
+.slideshow-root {
+    -fx-background-color: linear-gradient(to bottom, #1b2a49, #0d1321);
+}
+
+.greeting-label {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffd166;
+}
+
+.car-name-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.car-detail-label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #cbd5e1;
+}
