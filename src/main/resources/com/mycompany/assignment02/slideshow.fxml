@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15.0" styleClass="slideshow-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02.controller.SlideshowController">
+   <children>
+      <Label fx:id="greetingLabel" styleClass="greeting-label" text="Welcome to the Grand Prix!" />
+      <ImageView fx:id="carImageView" fitHeight="240.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="carNameLabel" styleClass="car-name-label" />
+      <Label fx:id="carDetailLabel" styleClass="car-detail-label" />
+   </children>
+</VBox>
