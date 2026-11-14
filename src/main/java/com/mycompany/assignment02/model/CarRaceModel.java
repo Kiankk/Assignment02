@@ -12,10 +12,11 @@ import javafx.scene.paint.Color;
  */
 public class CarRaceModel {
 
-    public static final double START_X = 120;
+    public static final double START_X = 30;
     public static final double FINISH_X = 820;
+    public static final double CAR_LENGTH = 90;
     public static final double LANE_HEIGHT = 70;
-    public static final double LANE_TOP = 20;
+    public static final double LANE_TOP = 24;
 
     private final List<Car> cars = new ArrayList<>();
     private final List<Car> finishOrder = new ArrayList<>();
@@ -28,6 +29,15 @@ public class CarRaceModel {
         cars.add(new Car("SUV", 4, "Orange", Color.DARKORANGE));
         cars.add(new Car("Roadster", 5, "Purple", Color.MEDIUMPURPLE));
         resetPositions();
+    }
+
+    /**
+     * Gives the distance a car travels until its front reaches the finish line.
+     *
+     * @return the distance in pixels
+     */
+    public double getTrackDistance() {
+        return FINISH_X - START_X - CAR_LENGTH;
     }
 
     public List<Car> getCars() {

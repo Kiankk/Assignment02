@@ -20,8 +20,6 @@ import javafx.scene.text.Text;
  */
 public class CarView extends Group {
 
-    public static final double WIDTH = 90;
-
     private static final double WHEEL_RADIUS = 8;
 
     private final Car car;
