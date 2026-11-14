@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane styleClass="race-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02.controller.CarRaceController">
+   <top>
+      <Label styleClass="title-label" text="Car Race" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <Pane fx:id="trackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="940.0" styleClass="track-pane" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#4a4e57" height="350.0" layoutX="20.0" layoutY="10.0" width="900.0" />
+            <Line endX="920.0" endY="80.0" startX="20.0" startY="80.0" styleClass="lane-line" />
+            <Line endX="920.0" endY="150.0" startX="20.0" startY="150.0" styleClass="lane-line" />
+            <Line endX="920.0" endY="220.0" startX="20.0" startY="220.0" styleClass="lane-line" />
+            <Line endX="920.0" endY="290.0" startX="20.0" startY="290.0" styleClass="lane-line" />
+            <Line endX="120.0" endY="360.0" startX="120.0" startY="10.0" styleClass="start-line" />
+            <Line endX="820.0" endY="360.0" startX="820.0" startY="10.0" styleClass="finish-line" />
+            <Label layoutX="90.0" layoutY="360.0" styleClass="line-label" text="START" />
+            <Label layoutX="788.0" layoutY="360.0" styleClass="line-label" text="FINISH" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
