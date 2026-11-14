@@ -1,10 +1,17 @@
 package com.mycompany.assignment02.view;
 
 import com.mycompany.assignment02.model.Car;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 /**
  * Draws a car with JavaFX shapes so that all parts move together.
@@ -15,11 +22,22 @@ public class CarView extends Group {
 
     public static final double WIDTH = 90;
 
+    private static final double WHEEL_RADIUS = 8;
+
     private final Car car;
+    private final List<Group> wheels = new ArrayList<>();
 
     public CarView(Car car) {
         this.car = car;
+        wheels.add(createWheel(20));
+        wheels.add(createWheel(70));
         getChildren().addAll(createBody(), createRoof(), createWindow(36), createWindow(50));
+        getChildren().addAll(wheels);
+        getChildren().add(createNumber());
+    }
+
+    public List<Group> getWheels() {
+        return wheels;
     }
 
     public Car getCar() {
@@ -45,5 +63,22 @@ public class CarView extends Group {
         window.setFill(Color.LIGHTSKYBLUE);
         window.setStroke(Color.BLACK);
         return window;
+    }
+
+    private Group createWheel(double centerX) {
+        double centerY = 34;
+        Circle tire = new Circle(centerX, centerY, WHEEL_RADIUS, Color.DIMGRAY);
+        tire.setStroke(Color.BLACK);
+        Line spoke = new Line(centerX, centerY, centerX + WHEEL_RADIUS, centerY);
+        spoke.setStroke(Color.WHITE);
+        spoke.setStrokeWidth(2);
+        return new Group(tire, spoke);
+    }
+
+    private Text createNumber() {
+        Text number = new Text(38, 28, String.valueOf(car.getNumber()));
+        number.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        number.setFill(Color.WHITE);
+        return number;
     }
 }
