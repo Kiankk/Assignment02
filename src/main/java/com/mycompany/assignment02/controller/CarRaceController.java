@@ -98,6 +98,8 @@ public class CarRaceController {
 
     private TranslateTransition createMove(CarView carView) {
         Car car = carView.getCar();
+        carView.translateXProperty().addListener((observable, oldValue, newValue)
+                -> car.moveTo(CarRaceModel.START_X + newValue.doubleValue(), car.getY()));
         double seconds = model.getTrackDistance() / car.getSpeed();
         TranslateTransition move = new TranslateTransition(Duration.seconds(seconds), carView);
         move.setToX(model.getTrackDistance());
