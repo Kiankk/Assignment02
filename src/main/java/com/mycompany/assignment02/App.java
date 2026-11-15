@@ -1,5 +1,6 @@
 package com.mycompany.assignment02;
 
+import com.mycompany.assignment02.controller.CarRaceController;
 import com.mycompany.assignment02.controller.SlideshowController;
 import com.mycompany.assignment02.model.CarRaceModel;
 import java.io.IOException;
@@ -35,8 +36,21 @@ public class App extends Application {
         Parent root = loader.load();
         SlideshowController controller = loader.getController();
         controller.setModel(model);
+        controller.setOnFinished(this::showRace);
         scene.setRoot(root);
         controller.play();
+    }
+
+    private void showRace() {
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("race.fxml"));
+            Parent root = loader.load();
+            CarRaceController controller = loader.getController();
+            controller.setModel(model);
+            scene.setRoot(root);
+        } catch (IOException e) {
+            throw new IllegalStateException("Could not load the race view", e);
+        }
     }
 
     public static void main(String[] args) {
