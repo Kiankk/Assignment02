@@ -63,6 +63,7 @@ public class CarRaceController {
             trackPane.getChildren().add(carView);
         }
         pauseButton.setDisable(true);
+        speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> applySpeed());
         messageArea.setText("Welcome! Press Start to begin the race.");
     }
 
@@ -82,11 +83,23 @@ public class CarRaceController {
         startButton.setDisable(true);
         pauseButton.setDisable(false);
         messageArea.setText("The race has started. Good luck to all drivers!");
+        applySpeed();
         for (TranslateTransition move : moves) {
             move.play();
         }
         for (RotateTransition spin : spins) {
             spin.play();
+        }
+    }
+
+    private void applySpeed() {
+        double rate = speedSlider.getValue();
+        speedLabel.setText(String.format("Speed: %.1fx", rate));
+        for (TranslateTransition move : moves) {
+            move.setRate(rate);
+        }
+        for (RotateTransition spin : spins) {
+            spin.setRate(rate);
         }
     }
 
