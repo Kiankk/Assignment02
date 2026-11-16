@@ -126,8 +126,7 @@ public class CarRaceController {
         startButton.setDisable(false);
         startButton.setText("Resume");
         pauseButton.setDisable(true);
-        messageArea.appendText("
-The race is paused.");
+        messageArea.appendText("\nThe race is paused.");
     }
 
     private void resumeRace() {
@@ -141,8 +140,7 @@ The race is paused.");
         startButton.setDisable(true);
         startButton.setText("Start");
         pauseButton.setDisable(false);
-        messageArea.appendText("
-The race continues!");
+        messageArea.appendText("\nThe race continues!");
     }
 
     @FXML
