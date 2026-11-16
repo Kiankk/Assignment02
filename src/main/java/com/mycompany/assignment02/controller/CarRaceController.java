@@ -147,5 +147,25 @@ The race continues!");
 
     @FXML
     private void handleReset() {
+        for (TranslateTransition move : moves) {
+            move.stop();
+        }
+        for (RotateTransition spin : spins) {
+            spin.stop();
+        }
+        moves.clear();
+        spins.clear();
+        model.reset();
+        for (CarView carView : carViews) {
+            carView.setTranslateX(0);
+            for (Group wheel : carView.getWheels()) {
+                wheel.setRotate(0);
+            }
+        }
+        paused = false;
+        startButton.setText("Start");
+        startButton.setDisable(false);
+        pauseButton.setDisable(true);
+        messageArea.setText("The race was reset. Press Start to race again.");
     }
 }
