@@ -92,6 +92,21 @@ public class CarRaceController {
         }
     }
 
+    private void finishCar(CarView carView) {
+        Car car = carView.getCar();
+        model.addFinisher(car);
+        for (RotateTransition spin : spins) {
+            if (carView.getWheels().contains(spin.getNode())) {
+                spin.stop();
+            }
+        }
+        if (model.getWinner() == car) {
+            messageArea.setText("We have a winner! " + car.getLabel() + " crossed the finish line first.");
+        } else {
+            messageArea.appendText("\n" + car.getLabel() + " finished in place " + model.getFinishOrder().size() + ".");
+        }
+    }
+
     private void applySpeed() {
         double rate = speedSlider.getValue();
         speedLabel.setText(String.format("Speed: %.1fx", rate));
@@ -124,6 +139,7 @@ public class CarRaceController {
         TranslateTransition move = new TranslateTransition(Duration.seconds(seconds), carView);
         move.setToX(model.getTrackDistance());
         move.setInterpolator(Interpolator.LINEAR);
+        move.setOnFinished(event -> finishCar(carView));
         return move;
     }
 
