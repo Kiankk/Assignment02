@@ -46,6 +46,7 @@ public class CarRaceController {
     private final List<CarView> carViews = new ArrayList<>();
     private final List<TranslateTransition> moves = new ArrayList<>();
     private final List<RotateTransition> spins = new ArrayList<>();
+    private boolean paused;
 
     /**
      * Gives the controller its model and draws the cars on the track.
@@ -61,11 +62,16 @@ public class CarRaceController {
             carViews.add(carView);
             trackPane.getChildren().add(carView);
         }
+        pauseButton.setDisable(true);
         messageArea.setText("Welcome! Press Start to begin the race.");
     }
 
     @FXML
     private void handleStart() {
+        if (paused) {
+            resumeRace();
+            return;
+        }
         model.randomizeSpeeds();
         moves.clear();
         spins.clear();
@@ -74,6 +80,7 @@ public class CarRaceController {
             spins.addAll(createSpins(carView));
         }
         startButton.setDisable(true);
+        pauseButton.setDisable(false);
         messageArea.setText("The race has started. Good luck to all drivers!");
         for (TranslateTransition move : moves) {
             move.play();
@@ -109,6 +116,33 @@ public class CarRaceController {
 
     @FXML
     private void handlePause() {
+        for (TranslateTransition move : moves) {
+            move.pause();
+        }
+        for (RotateTransition spin : spins) {
+            spin.pause();
+        }
+        paused = true;
+        startButton.setDisable(false);
+        startButton.setText("Resume");
+        pauseButton.setDisable(true);
+        messageArea.appendText("
+The race is paused.");
+    }
+
+    private void resumeRace() {
+        paused = false;
+        for (TranslateTransition move : moves) {
+            move.play();
+        }
+        for (RotateTransition spin : spins) {
+            spin.play();
+        }
+        startButton.setDisable(true);
+        startButton.setText("Start");
+        pauseButton.setDisable(false);
+        messageArea.appendText("
+The race continues!");
     }
 
     @FXML
