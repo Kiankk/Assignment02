@@ -105,6 +105,24 @@ public class CarRaceController {
         } else {
             messageArea.appendText("\n" + car.getLabel() + " finished in place " + model.getFinishOrder().size() + ".");
         }
+        if (model.isRaceOver()) {
+            showResults();
+        }
+    }
+
+    private void showResults() {
+        Car winner = model.getWinner();
+        StringBuilder text = new StringBuilder();
+        text.append("Congratulations! ").append(winner.getLabel()).append(" is the winner!\n\n");
+        text.append("Final results:\n");
+        int place = 1;
+        for (Car car : model.getFinishOrder()) {
+            text.append(place++).append(". ").append(car.getLabel()).append("\n");
+        }
+        text.append("\nAnimations used: TranslateTransition moves each car, ");
+        text.append("RotateTransition spins the wheels.\n");
+        messageArea.setText(text.toString());
+        pauseButton.setDisable(true);
     }
 
     private void applySpeed() {
