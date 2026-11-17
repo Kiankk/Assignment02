@@ -23,7 +23,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(new StackPane(), 1000, 640);
+        scene = new Scene(new StackPane(), 1000, 790);
         scene.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
         stage.setTitle("Car Race");
         stage.setScene(scene);
