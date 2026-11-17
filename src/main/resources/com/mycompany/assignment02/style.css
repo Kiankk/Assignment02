@@ -18,3 +18,40 @@
     -fx-font-size: 20px;
     -fx-text-fill: #cbd5e1;
 }
+
+.race-root {
+    -fx-background-color: linear-gradient(to bottom, #1b2a49, #0d1321);
+}
+
+.title-label {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffd166;
+}
+
+.track-pane {
+    -fx-background-color: #2e7d32;
+    -fx-background-radius: 8;
+}
+
+.lane-line {
+    -fx-stroke: white;
+    -fx-stroke-dash-array: 15 10;
+    -fx-stroke-width: 2;
+}
+
+.start-line {
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 4;
+}
+
+.finish-line {
+    -fx-stroke: #ffd166;
+    -fx-stroke-width: 6;
+    -fx-stroke-dash-array: 12 12;
+}
+
+.line-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
