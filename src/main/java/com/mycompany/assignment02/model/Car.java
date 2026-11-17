@@ -67,13 +67,6 @@ public class Car {
         this.y = y;
     }
 
-    /**
-     * Moves the car forward by its own speed.
-     */
-    public void advance() {
-        x += speed;
-    }
-
     public String getLabel() {
         return "Car " + number + " (" + colorName + " " + type + ")";
     }
