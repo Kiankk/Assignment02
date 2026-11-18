@@ -10,3 +10,23 @@ The project follows the Model-View-Controller pattern.
 - TranslateTransition moves the cars and RotateTransition spins the wheels
 - Start, Pause and Reset buttons and a speed slider
 - Winner announcement and final results in the message area
+
+## Project structure
+
+| Part | Class or file |
+| --- | --- |
+| Model | `Car`, `CarRaceModel` |
+| View | `slideshow.fxml`, `race.fxml`, `style.css`, `CarView` |
+| Controller | `SlideshowController`, `CarRaceController` |
+
+The FXML files can be opened and edited with Scene Builder.
+
+## How to run
+
+Open the project in NetBeans and run it, or use Maven:
+
+```
+mvn clean javafx:run
+```
+
+Requires JDK 11 or newer.
