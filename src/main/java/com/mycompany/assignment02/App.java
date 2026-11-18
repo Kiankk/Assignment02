@@ -26,6 +26,8 @@ public class App extends Application {
         scene = new Scene(new StackPane(), 1000, 790);
         scene.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
         stage.setTitle("Car Race");
+        stage.setMinWidth(1000);
+        stage.setMinHeight(790);
         stage.setScene(scene);
         stage.show();
         showSlideshow();
