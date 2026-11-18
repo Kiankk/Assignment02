@@ -67,6 +67,9 @@ public class CarRaceController {
         messageArea.setText("Welcome! Press Start to begin the race.");
     }
 
+    /**
+     * Starts a new race, or resumes a paused one.
+     */
     @FXML
     private void handleStart() {
         if (paused) {
@@ -161,6 +164,9 @@ public class CarRaceController {
         return move;
     }
 
+    /**
+     * Pauses all car and wheel animations.
+     */
     @FXML
     private void handlePause() {
         for (TranslateTransition move : moves) {
@@ -190,6 +196,9 @@ public class CarRaceController {
         messageArea.appendText("\nThe race continues!");
     }
 
+    /**
+     * Stops the race and puts the cars back on the start line.
+     */
     @FXML
     private void handleReset() {
         for (TranslateTransition move : moves) {
